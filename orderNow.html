@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<!-- Here is where the Menu page document starts -->
+<html>
+<!-- This div tag is to preserve the dimensions of the document -->
+<div id="whole">
+	<!-- Here is where the head of our Menu starts -->
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Here is where one defines the title of the Menu -->
+		<title>Papa John's Pizza Menu</title>
+		<!-- Here is where one inserts the icon o the title --> 
+		<link rel="icon" type="image/png" href="images/PapaJohns.png" />
+		<!-- Here is where one inserts the style file for the Menu -->
+		<link href="css/styleOrderNow.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        $( "#datepicker" ).datepicker({ minDate: 0, maxDate: "7D" });
+      } );
+    </script>
+    <script>
+      $( function() {
+      $( "#accordion1" ).accordion({
+      active: false,
+      collapsible: true,
+      heightStyle: "content",
+      event: "click"
+      });
+      // Getter
+      var event = $( ".selector" ).accordion( "option", "event" ); 
+      // Setter
+      $( ".selector" ).accordion( "option", "event", "click", "background", "transparent");
+      } );
+    </script>
+    <script>
+      var grndTotal = 0;
+      var totalSumC10 = 0;
+      var totalSumC12 = 0;
+      var totalSumC14 = 0;
+      var totalSumF10 = 0;
+      var totalSumF12 = 0;
+      var totalSumF14 = 0;
+      var totalSumSDips = 0;
+      var totalSumSDippers = 0;
+      var totalSumSDippersWedges = 0;
+      var totalSumSBites = 0;
+      var totalSumSGarlic = 0;
+      var totalSumSMozz = 0;
+      var totalSumSSlice = 0;
+      var totalSumSWedges = 0;
+      var totalSum = 0;
+      
+      function totalIt(name) {
+      if(name == "classic10"){
+        var input = document.getElementsByName("classic10");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumC10 = total*12.00;
+      }
+      if(name == "classic12"){
+        var input = document.getElementsByName("classic12");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumC12 = total*14.00;
+      }
+      if(name == "classic14"){
+        var input = document.getElementsByName("classic14");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumC14 = total*18.00;
+      }
+      if(name == "finest10"){
+        var input = document.getElementsByName("finest10");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumF10 = total*14.00;
+      }
+      if(name == "finest12"){
+        var input = document.getElementsByName("finest12");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumF12 = total*16.00;
+      }
+      if(name == "finest14"){
+        var input = document.getElementsByName("finest14");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumF14 = total*18.00;
+      }
+      if(name == "sideDips"){
+        var input = document.getElementsByName("sideDips");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSDips = total*1.00;
+      }
+      if(name == "sideDippers"){
+        var input = document.getElementsByName("sideDippers");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSDippers = total*6.00;
+      }
+      if(name == "sideDippersWedges"){
+        var input = document.getElementsByName("sideDippersWedges");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSDippersWedges = total*8.00;
+      }
+      if(name == "sideBites"){
+        var input = document.getElementsByName("sideBites");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSBites = total*3.50;
+      }
+      if(name == "sideGarlic"){
+        var input = document.getElementsByName("sideGarlic");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSGarlic = total*4.50;
+      }
+      if(name == "sideMozz"){
+        var input = document.getElementsByName("sideMozz");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSMozz = total*6;
+      }
+      if(name == "sideSlice"){
+        var input = document.getElementsByName("sideSlice");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSSlice = total*2;
+      }
+      if(name == "sideWedges"){
+        var input = document.getElementsByName("sideWedges");
+        var total = 0;
+        for (var i = 0; i < input.length; i++) {
+          if (input[i].checked) {
+            total += 1;
+          }
+        }
+        totalSumSWedges = total*3.50;
+      }
+      
+      totalSum = totalSumC10 + totalSumC12 + totalSumC14 + totalSumF10 + totalSumF12 + totalSumF14 + totalSumSDips + totalSumSDippers + totalSumSDippersWedges + totalSumSBites + totalSumSGarlic + totalSumSMozz + totalSumSSlice + totalSumSWedges;
+      
+      grndTotal = parseFloat(totalSum);
+      document.getElementById("Total").value = "€ "+grndTotal ;
+      document.getElementById("Total1").value = "€ "+document.getElementsByName("Address") ;
+      }
+    </script>
+    <script>
+      $( function() {
+        $( "#dialog-confirm" ).dialog({
+          autoOpen: false,
+          resizable: false,
+          height: "auto",
+          width: 400,
+          modal: true,
+          buttons: {
+            "Confirm Order": function() {
+              $( this ).dialog( "close" );
+              $( "#dialog-orderComplete" ).dialog( "open" );          
+            },
+            "Cancel": function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+        $( "#dialog-missing" ).dialog({
+          autoOpen: false,
+          resizable: false,
+          height: "auto",
+          width: 400,
+          modal: true,
+          buttons: {
+            "Alright": function() {
+              $( this ).dialog( "close" );
+            }
+          }
+        });
+        $( "#dialog-orderComplete" ).dialog({
+          autoOpen: false,
+          resizable: false,
+          height: "auto",
+          width: 400,
+          modal: true,
+          buttons: {
+            "Thanks": function() {
+              $( this ).dialog( "close" );
+              location.href = "orderComplete.html";
+            }
+          }
+        });
+      });
+      
+      function myFunction() {
+        var a = document.getElementById("FirstName").value;
+        var b = document.getElementById("LastName").value;
+        var c = document.getElementById("Address").value;
+        var d = document.getElementById("datepicker").value;
+        if ((grndTotal == 0)||(a == '')||(b == '')||(c == '')||(d == '')) {
+          $( "#dialog-missing" ).dialog( "open" );
+        } else {
+          $( "#dialog-confirm" ).dialog( "open" );          
+        }
+      }
+    </script>
+    <script>
+      $( function() {
+        $( document ).tooltip();
+      });
+    </script>
+    
+	</head>
+	<body>
+    <div id="navBarDiv">
+      <div id="logo">
+        <!-- Here is inserted the company's logo -->
+        <a href="index.html"><img src="images/PapaJohns.png" alt="Papa John's" title="Papa John's"/></a>
+      </div>
+      <div id="index">
+        <center><a id="font" href="index.html">Index</a></center>
+      </div>
+      <div id="aboutUs">
+        <center><a id="font" href="aboutUs.html">About Us</a></center>
+      </div>
+      <div id="contactUs">
+        <center><a id="font" href="contactUs.html">Contact Us</a></center>
+      </div>
+      <div id="menu">
+        <center><a id="font" href="menu.html">Menu</a></center>
+      </div>
+      <div id="gallery">
+        <center><a id="font" href="gallery.html">Gallery</a></center>
+      </div>
+      <div id="orderNow">
+        <center><a id="font" href="orderNow.html" >Order Now</a></center>
+      </div>
+    </div>
+    <div>
+			<img id="image2" src="images/menuBanner.jpg" alt="Papa John's" title="Papa John's"/>
+		</div>
+    <!-- Here starts the main div tag of the body -->
+		<div id="mainBody">
+			<table border="0" width="100%">
+				<tr>
+					<td colspan="1"><p id="bigOne"><b>Your Order</p></b></td>
+				</tr>
+      </table>
+      <form action="" method="get">
+      <div id="accordion1">
+        <p id="mediumOne" title="Here is where you choose what you want to order. Due to limited knowledge you can only choose one unit per item."><b>Your Food</b></p>
+        <div>
+          <table border="0" width="100%">
+            <tr>
+              <td>
+                <p id="fourthFont">Classics</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              </td>
+              <td>
+                <p id="thirdFont">10" - &euro; 12</p>
+              </td>
+              <td>
+                <p id="thirdFont">12" - &euro; 14</p>
+              </td>
+              <td>
+                <p id="thirdFont">14" - &euro; 16</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">The Vegeterian</p>
+              </td>
+              <td>
+                <center><input name="classic10" value="12" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic12" value="14" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic14" value="16" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">The Mexican</p>
+              </td>
+              <td>
+                <center><input name="classic10" value="12" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic12" value="14" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic14" value="16" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Papa's Pepperoni Plus</p>
+              </td>
+              <td>
+                <center><input name="classic10" value="12" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic12" value="14" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic14" value="16" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Hawaiian BBQ</p>
+              </td>
+              <td>
+                <center><input name="classic10" value="12" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic12" value="14" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic14" value="16" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">The Hawaiian</p>
+              </td>
+              <td>
+                <center><input name="classic10" value="12" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic12" value="14" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="classic14" value="16" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="fourthFont">Papa's Finest</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+              </td>
+              <td>
+                <p id="thirdFont">10" - &euro; 14</p>
+              </td>
+              <td>
+                <p id="thirdFont">12" - &euro; 16</p>
+              </td>
+              <td>
+                <p id="thirdFont">14" - &euro; 18</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Hot Passion</p>
+              </td>
+              <td>
+                <center><input name="finest10" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest12" value="16" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest14" value="18" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Chicken BBQ</p>
+              </td>
+              <td>
+                <center><input name="finest10" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest12" value="16" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest14" value="18" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">All The Meats</p>
+              </td>
+              <td>
+                <center><input name="finest10" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest12" value="16" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest14" value="18" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">The Works</p>
+              </td>
+              <td>
+                <center><input name="finest10" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest12" value="16" type="checkbox" id="p2" onclick="totalIt(this.name)" ></center>
+              </td>
+              <td>
+                <center><input name="finest14" value="18" type="checkbox" id="p3" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="fourthFont">Sides</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Papa's Dunkin Dips 3 for &euro; 1</p>
+              </td>
+              <td>
+                <center><input name="sideDips" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Chicken Dippers &euro; 6</p>
+              </td>
+              <td>
+                <center><input name="sideDippers" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Dippers & Wedges Combo &euro; 8</p>
+              </td>
+              <td>
+                <center><input name="sideDippersWedges" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Papa's Bites &euro; 3.50</p>
+              </td>
+              <td>
+                <center><input name="sideBites" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">10" Garlic Pizza Bread &euro; 4.50</p>
+              </td>
+              <td>
+                <center><input name="sideGarlic" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)"></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">10" Garlic Pizza bread with cheese &euro; 6</p>
+              </td>
+              <td>
+                <center><input name="sideMozz" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Pepperoni Slice &euro; 2</p>
+              </td>
+              <td>
+                <center><input name="sideSlice" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p id="thirdFont">Wedges &euro; 3.50</p>
+              </td>
+              <td>
+                <center><input name="sideWedges" value="14" type="checkbox" id="p1" onclick="totalIt(this.name)" ></center>
+              </td>
+            </tr>
+          </table>
+          <label>
+            <br><p id="thirdFont">Total
+            <input style="margin-bottom:10px;" value="€0.00" readonly type="text" id="Total" name="total">
+            </p>
+          </label>
+        </div>
+        <p id="mediumOne"><b>Your Personal Information</b></p>
+        <div>
+            <p id="thirdFont">First name: <textarea id="FirstName" name="FirstName" rows="1" cols="25" title="Here you must type in your First Name." required maxlength="25"></textarea></p><br>
+            <p id="thirdFont">Last name: <textarea id="LastName" name="LastName" rows="1" cols="25" title="Here you must type in your Last Name." required maxlength="25"></textarea></p><br>
+            <p id="thirdFont">Address: <textarea id="Address" name="Address" rows="6" cols="25" title="Here you must type the address you want your food to be delivered to." required></textarea></p><br>
+        </div>
+        <p id="mediumOne"><b>When you want your order to be delivered</b></p>
+        <div>
+          <p id="thirdFont">Date: <input style="margin-bottom:10px;" type="text" id="datepicker" name="Date" title="Here you must enter the date you want your food to be delivered. Note that you can ONLY order your food up to one week in advance." required ></p>
+        </div>
+      </div>
+      <center><input class="ui-button ui-widget ui-corner-all" type="button" value="Order Now" onclick="myFunction()"></center>
+      <div id="dialog-confirm" title="We are almost there">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Are you sure you want to place your order now?</p>
+      </div>
+      <div id="dialog-missing" title="Something is not right!">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>There are some information missing to proceed with your order. Check if you have summited everything.</p>
+      </div>
+      <div id="dialog-orderComplete" title="Papa John's Pizza">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>Your order has been placed.</p>
+      </div>
+      </form>
+    </div>
+  </body>
+    <!-- Here starts the footer of the Menu -->
+	<footer>
+		<hr />
+		<div id="mainFooter">
+			<!-- Here one finds the div tags that make up the footer -->
+			<div id="leftFooter">
+				<ul>
+					<li><a href="index.html">Index</a></li>
+					<li><a href="aboutUs.html">About Us</a></li>
+					<li><a href="contactUs.html">Contact Us</a></li>
+				</ul>
+			</div>
+			<div id="middleFooter">
+				<ul>
+					<li><a href="menu.html">Menu</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+			</div>
+			<div id="rightFooter">
+				<img src="images/SupermacsPapaJohnsLogos.png" alt="Supermac's and Papa John's Pizza" title="Supermac's and Papa John's Pizza"/>
+			</div>
+		</div>
+		<div id="copyright">			
+			<p>Copyright @ 2017. All rights reserved. Creeping Death</p>
+		</div>
+	</footer>
+</div>
+</html>

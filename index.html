@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!-- Here is where the Index page document starts -->
+<html>
+<!-- This div tag is to preserve the dimensions of the document -->
+<div id="whole">
+	<!-- Here is where the head of our Index starts -->
+	<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- Here is where one defines the title of the Index -->
+		<title> Papa John's Pizza Restaurant | Pizza Delivery Ireland</title>
+		<!-- Here is where one inserts the icon o the title --> 
+		<link rel="icon" type="image/png" href="images/PapaJohns.png" />
+		<!-- Here is where one inserts the style file for the Index -->
+		<link href="css/styleIndex.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $( function() {
+        var projects = [
+          {
+            value: "theWorks",
+            label: "The Works",
+            desc: "The best pizza you'll ever get",
+            icon: "theWorks.jpg",
+            "website-link": "facebook.com"
+          },
+          {
+            value: "allTheMeats",
+            label: "All The Meats",
+            desc: "For the meats lovers.",
+            icon: "allTheMeats.jpg"
+          },
+          {
+            value: "papasPepperoni",
+            label: "Papas Pepperoni",
+            desc: "Doble cheese and pepperoni pizza",
+            icon: "papasPepperoniPlus.jpg"
+          },
+          {
+            value: "theVegeterian",
+            label: "The Vegeterian",
+            desc: "For crazy people",
+            icon: "theVegeterian.jpg"
+          },
+          {
+            value: "wedges",
+            label: "Wedges",
+            desc: "Potato wedges baked in our ovens.",
+            icon: "wedges.jpg"
+          },
+          {
+            value: "pepperoniSlice",
+            label: "Pepperoni Slice",
+            desc: "Slice of pizza topped with pepperoni.",
+            icon: "pepperoniSlice.png"
+          }
+        ];
+ 
+        $( "#project" ).autocomplete({
+          minLength: 0,
+          source: projects,
+          focus: function( event, ui ) {
+            $( "#project" ).val( ui.item.label );
+            return false;
+          },
+          select: function( event, ui ) {
+            $( "#project" ).val( ui.item.label );
+            $( "#project-id" ).val( ui.item.value );
+            $( "#project-description" ).html( ui.item.desc );
+            $( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+ 
+            return false;
+          }
+        })
+        .autocomplete( "instance" )._renderItem = function( ul, item ) {
+          return $( "<li>" )
+          .append( "<div>" + item.label + "<br>" + item.desc + "</div>" )
+          .appendTo( ul );
+        };
+      } );
+    </script>
+	</head>
+	<!-- Here is where starts the body of the index -->
+	<body>
+    <div id="navBarDiv">
+      <div id="logo">
+        <!-- Here is inserted the company's logo -->
+		    <a href="index.html"><img src="images/PapaJohns.png" alt="Papa John's" title="Papa John's"/></a>
+      </div>
+      <div id="index">
+        <center><a id="font" href="index.html">Index</a></center>
+      </div>
+      <div id="aboutUs">
+        <center><a id="font" href="aboutUs.html">About Us</a></center>
+      </div>
+      <div id="contactUs">
+        <center><a id="font" href="contactUs.html">Contact Us</a></center>
+      </div>
+      <div id="menu">
+        <center><a id="font" href="menu.html">Menu</a></center>
+      </div>
+      <div id="gallery">
+        <center><a id="font" href="gallery.html">Gallery</a></center>
+      </div>
+      <div id="orderNow">
+        <center><a id="font" href="orderNow.html" >Order Now</a></center>
+      </div>
+	  </div>
+    <div id="searchBox">
+      <img id="project-icon" src="images/PapaJohns.png" class="ui-state-default" alt="">
+      <input id="project" type="text" placeholder="Search...">
+      <input type="hidden" id="project-id">
+      <p id="project-description"></p>
+    </div>
+		<!-- Here starts the company's product image div tag -->
+		<div id="companysImageDiv">
+			<!-- Here is inserted the company's famous pizza image -->
+			<img src="images/papajohns.jpg" alt="Papa John's Pizza" title="Papa John's Pizza"/>
+		</div>
+	</body>
+	<!-- Here starts the footer of the Index -->
+	<footer>
+		<hr />
+		<div id="mainFooter">
+			<!-- Here one finds the div tags that make up the footer -->
+			<div id="leftFooter">
+				<ul>
+					<li><a href="index.html">Index</a></li>
+					<li><a href="aboutUs.html">About Us</a></li>
+					<li><a href="contactUs.html">Contact Us</a></li>
+				</ul>
+			</div>
+			<div id="middleFooter">
+				<ul>
+					<li><a href="menu.html">Menu</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+          <li><a href="success.html">Our Stars</a></li>
+				</ul>
+			</div>
+			<div id="rightFooter">
+				<img src="images/SupermacsPapaJohnsLogos.png" alt="Supermac's and Papa John's Pizza" title="Supermac's and Papa John's Pizza"/>
+			</div>
+		</div>
+		<div id="copyright">
+			<p>Copyright @ 2017. All rights reserved. Creeping Death</p>
+		</div>
+	</footer>
+</div>
+</html>

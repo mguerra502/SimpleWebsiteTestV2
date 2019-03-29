@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<div id="whole">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Here is where one defines the title of the Index -->
+	<title> Papa John's Pizza Restaurant | Pizza Delivery Ireland</title>
+	<!-- Here is where one inserts the icon o the title --> 
+	<link rel="icon" type="image/png" href="images/PapaJohns.png" />
+	<!-- Here is where one inserts the style file for the Index -->
+	<link href="css/styleSuccess.css" type="text/css" rel="stylesheet" />
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script type="text/javascript">
+
+    window.onload = function () {
+      var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "theme10",
+        title:{
+          text: "Our 5 best selling products from last month"
+        },
+        animationEnabled: true,
+        data: [              
+        {
+          // Change type to "bar", "area", "spline", "pie",etc.
+          type: "bar",
+          dataPoints: [
+            { label: "Hawaiian",  y: 127  },
+            { label: "Papas Pepperoni", y: 212  },
+            { label: "The Works", y: 131  },
+            { label: "Garlic Bread with Mozz",  y: 298  },
+            { label: "All The Meats",  y: 111  }
+          ]
+        }
+        ]
+      });
+      chart.render();
+    }
+  </script>
+</head>
+<body>
+  <div id="navBarDiv">
+      <div id="logo">
+        <!-- Here is inserted the company's logo -->
+		    <a href="index.html"><img src="images/PapaJohns.png" alt="Papa John's" title="Papa John's"/></a>
+      </div>
+      <div id="index">
+        <center><a id="font" href="index.html">Index</a></center>
+      </div>
+      <div id="aboutUs">
+        <center><a id="font" href="aboutUs.html">About Us</a></center>
+      </div>
+      <div id="contactUs">
+        <center><a id="font" href="contactUs.html">Contact Us</a></center>
+      </div>
+      <div id="menu">
+        <center><a id="font" href="menu.html">Menu</a></center>
+      </div>
+      <div id="gallery">
+        <center><a id="font" href="gallery.html">Gallery</a></center>
+      </div>
+      <div id="orderNow">
+        <center><a id="font" href="orderNow.html" >Order Now</a></center>
+      </div>
+	  </div>
+  <center>
+    <div id="chartContainer" style="height: 400px; width: 80%; margin-top:40px;"></div>
+  </center>
+</body>
+<footer>
+		<hr />
+		<div id="mainFooter">
+			<!-- Here one finds the div tags that make up the footer -->
+			<div id="leftFooter">
+				<ul>
+					<li><a href="index.html">Index</a></li>
+					<li><a href="aboutUs.html">About Us</a></li>
+					<li><a href="contactUs.html">Contact Us</a></li>
+				</ul>
+			</div>
+			<div id="middleFooter">
+				<ul>
+					<li><a href="menu.html">Menu</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+				</ul>
+			</div>
+			<div id="rightFooter">
+				<img src="images/SupermacsPapaJohnsLogos.png" alt="Supermac's and Papa John's Pizza" title="Supermac's and Papa John's Pizza"/>
+			</div>
+		</div>
+		<div id="copyright">			
+			<p>Copyright @ 2017. All rights reserved. Creeping Death</p>
+		</div>
+</footer>
+</div>
+</html>
